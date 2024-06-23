@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'home/index'
+  # Devise routes for User authentication
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Companies routes
+  resources :companies
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Flats routes with nested matches
+  resources :flats do
+    resources :matches, only: [:index, :new, :create]
+  end
+
+  # Renters routes with nested matches
+  resources :renters do
+    resources :matches, only: [:index, :new, :create]
+  end
+
+  # Standalone matches routes for actions like show, edit, update, destroy
+  resources :matches, only: [:show, :edit, :update, :destroy]
+
+  # Setting the root route to a home controller
+  root 'home#index'
 end
