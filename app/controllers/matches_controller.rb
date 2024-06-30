@@ -27,7 +27,7 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
-      redirect_to @match, notice 'Updated!'
+      redirect_to @match, notice: 'Updated!'
     else
       render :edit
     end
