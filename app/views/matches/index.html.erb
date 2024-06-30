@@ -1,0 +1,36 @@
+<h1>Matches</h1>
+
+<%= link_to 'New Match', new_match_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Viewing</th>
+      <th>Maintenance</th>
+      <th>Payment</th>
+      <th>Offer</th>
+      <th>Renter</th>
+      <th>Flat</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.id %></td>
+        <td><%= match.viewing %></td>
+        <td><%= match.maintenance %></td>
+        <td><%= match.payment %></td>
+        <td><%= match.offer %></td>
+        <td><%= match.renter_id %></td>
+        <td><%= match.flat_id %></td>
+        <td>
+          <%= link_to 'Show', match %>
+          <%= link_to 'Edit', edit_match_path(match) %>
+          <%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
