@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # Companies routes
   resources :companies
+  resources :matches
+
 
   # Flats routes with nested matches
   resources :flats do
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
   end
 
   # Standalone matches routes for actions like show, edit, update, destroy
-  resources :matches, only: [:show, :edit, :update, :destroy]
 
   # Setting the root route to a home controller
   root 'home#index'
