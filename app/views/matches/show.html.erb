@@ -1,0 +1,29 @@
+<h1>Match Details</h1>
+
+<p>
+  <strong>Viewing:</strong>
+  <%= @match.viewing %>
+</p>
+<p>
+  <strong>Maintenance:</strong>
+  <%= @match.maintenance %>
+</p>
+<p>
+  <strong>Payment:</strong>
+  <%= @match.payment %>
+</p>
+<p>
+  <strong>Offer:</strong>
+  <%= @match.offer %>
+</p>
+<p>
+  <strong>Renter:</strong>
+  <%= @match.renter_id %>
+</p>
+<p>
+  <strong>Flat:</strong>
+  <%= @match.flat_id %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>
